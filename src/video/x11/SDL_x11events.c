@@ -899,6 +899,7 @@ X11_DispatchEvent(_THIS)
 #endif
             /* */
             SDL_zeroa(text);
+/* Workaround segmentation fault on key press
 #ifdef X_HAVE_UTF8_STRING
             if (data->ic) {
                 X11_Xutf8LookupString(data->ic, &xevent.xkey, text, sizeof(text),
@@ -909,7 +910,7 @@ X11_DispatchEvent(_THIS)
 #else
             X11_XLookupString(&xevent.xkey, text, sizeof(text), &keysym, NULL);
 #endif
-
+*/
 #ifdef SDL_USE_IME
             if(SDL_GetEventState(SDL_TEXTINPUT) == SDL_ENABLE){
                 handled_by_ime = SDL_IME_ProcessKeyEvent(keysym, keycode);

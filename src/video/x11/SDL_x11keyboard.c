@@ -289,7 +289,7 @@ X11_InitKeyboard(_THIS)
     
     /* Open a connection to the X input manager */
 #ifdef X_HAVE_UTF8_STRING
-    if (SDL_X11_HAVE_UTF8) {
+    if (0 && SDL_X11_HAVE_UTF8) { // Dodge `X11_XSetLocaleModifiers()`
         /* Set the locale, and call XSetLocaleModifiers before XOpenIM so that 
            Compose keys will work correctly. */
         char *prev_locale = setlocale(LC_ALL, NULL);

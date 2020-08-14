@@ -746,7 +746,7 @@ X11_SetWindowTitle(_THIS, SDL_Window * window)
         X11_XFree(titleprop.value);
     }
 #ifdef X_HAVE_UTF8_STRING
-    if (SDL_X11_HAVE_UTF8) {
+    if (0 && SDL_X11_HAVE_UTF8) { // Dodge `X11_Xutf8TextListToTextProperty()`
         status = X11_Xutf8TextListToTextProperty(display, (char **) &title, 1,
                                             XUTF8StringStyle, &titleprop);
         if (status == Success) {
